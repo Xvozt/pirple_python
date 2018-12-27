@@ -4,7 +4,6 @@ def artistFunc():
     return Name
 
 
-
 print(artistFunc())
 
 
