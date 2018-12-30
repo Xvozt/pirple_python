@@ -6,4 +6,4 @@ def equalityCheck(a, b, c):
         print(False)
 
 
-equalityCheck(3, "2", 2)
+equalityCheck(6, "5", 5)
