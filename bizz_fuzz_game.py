@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 # BizzFuzz game
 
+# Function that returns if number is prime or not
+
 
 def is_prime(number):
+    # 1 is not Prime and 2 is Prime
     if number == 1:
         return False
     if number == 2:
         return True
     i = 2
-    limit = int(number ** 0.5)
+    limit = int(number ** 0.5)  # no need to go through all dividers
     while i <= limit:
         if number % i == 0:
             return False
