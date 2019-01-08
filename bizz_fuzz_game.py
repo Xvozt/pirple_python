@@ -2,7 +2,7 @@
 # BizzFuzz game
 
 
-def isPrime(number):
+def is_prime(number):
     if number == 1:
         return False
     if number == 2:
@@ -23,7 +23,7 @@ for i in range(101):
         print("Fizz")
     elif i % 5 == 0:
         print("Buzz")
-    elif isPrime(i) is True:
+    elif is_prime(i) is True:
         print("Prime")
     else:
         print(i)
