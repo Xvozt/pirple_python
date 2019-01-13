@@ -32,4 +32,4 @@ def draw_board(rows, columns):
     else:
         return False
 
-print(draw_board(14,70))
+print(draw_board(5, 72))
