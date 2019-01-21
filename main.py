@@ -1,20 +1,30 @@
 # -*- coding: utf-8 -*-
-Artist = "Oxxxymiron" #artist name
-Genre = "Rap or Hip Hop" #genre name
-Song = "Город под подошвой" #song name on Russian
-DurationInSeconds = str(4*60+7) + " seconds" #song duration
-Year = 2015 # year 
-ViewsOnYoutube = 47000000 #views count
-PublicationDate = "21.09.2015" #publication date on youtube
-MyPersonalScore = str(4.5) + " out of " + str(5) #my personal score rating of this song
+ 
+
+MyFavoriteSong = {'Artist': "Oxxxymiron", 'Genre': "Rap or Hip Hop", 'Song': "Город под подошвой", 
+                  'DurationInSeconds': str(4*60+7) + " seconds", 'Year': 2015, 'ViewsOnYoutube': 47000000, 
+                  'PublicationDate': "21.09.2015", 'MyPersonalScore': str(4.5) + " out of " + str(5)}
+
+def dict_printer():
+    for key, value in MyFavoriteSong.items():
+        print(key, ":", value)
 
 
+def guesser(key, value):
+    if key in MyFavoriteSong and str(value) == str(MyFavoriteSong[key]):
+        return True
+    else:
+        return False
 
-print(Artist)
-print(Genre)
-print(Song)
-print(DurationInSeconds)
-print(Year)
-print(ViewsOnYoutube)
-print(PublicationDate)
-print(MyPersonalScore)
+
+def main():
+    key = input("guess key: ")
+    value = input("guess value: ")
+    if guesser(key, value) is True:
+        print(key, ":", value, "guessed right\n")
+    else:
+        print(key, ":", value, "guessed wrong\n")
+
+
+main()
+dict_printer() 
