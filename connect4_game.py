@@ -3,26 +3,32 @@ from termcolor import colored
 ROW_COUNT = 6
 COLUMN_COUNT = 7
 
-# NO_PIECE = u'\u25A1'
-NO_PIECE = colored('X', color = 'red')
-PIECE_ONE = u'\U0001F534'
-PIECE_TWO = u'\U0001F535'
+NO_PIECE = '[_]'
+PIECE_ONE = colored('[X]', color = 'red')
+PIECE_TWO = colored('[O]', color = 'blue')
+
 
 board = []
-
 def new_board(board):
     for dummy in range(ROW_COUNT):
         board.append([NO_PIECE]*COLUMN_COUNT)
     return board
 
 
-def print_board(board):
+def draw_board(board):
     for row in reversed(board):
-        print(row)
+        for element in range(len(row)):
+            if element != len(row)-1:
+                print(row[element], end = "")
+            else:
+                print(row[element])
 
 
 def is_location_valid_for_turn(board, col):
-    return board[ROW_COUNT-1][col] == NO_PIECE
+    try:
+        return board[ROW_COUNT-1][col] == NO_PIECE
+    except IndexError:
+        print('You must choose the number of columnt between 1 and ' + str(COLUMN_COUNT))
 
 
 def make_turn(board, row, col, piece):
@@ -36,28 +42,27 @@ def get_next_free_row(board, col):
 
 
 board = new_board(board)
-print_board(board)
+draw_board(board)
 game_over = False
 turn = 0
 
 while not game_over:
     if turn == 0:
-        col = int(input('Player 1 making turn(0-6): '))
+        col = int(input('Player 1 making turn(1-7): '))
+        col_number = col - 1
 
-        if is_location_valid_for_turn(board, col):
-            row = get_next_free_row(board, col)
-            make_turn(board, row, col, PIECE_ONE)
+        if is_location_valid_for_turn(board, col_number):
+            row = get_next_free_row(board, col_number)
+            make_turn(board, row, col_number, PIECE_ONE)
     
-    else:
-        col = int(input('Player 2 making turn(0-6): '))
-
-        if is_location_valid_for_turn(board, col):
-            row = get_next_free_row(board, col)
-            make_turn(board, row, col, PIECE_TWO)
+    else: 
+        col = int(input('Player 2 making turn(1-7): '))
+        col_number = col -1
+        
+        if is_location_valid_for_turn(board, col_number):
+            row = get_next_free_row(board, col_number)
+            make_turn(board, row, col_number, PIECE_TWO)
     
     turn += 1
     turn = turn % 2
-    print_board(board)
-
-
-
+    draw_board(board)
