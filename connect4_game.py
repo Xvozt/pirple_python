@@ -13,9 +13,9 @@ The first player formed vertical, horizontal or diagonal line of pieces wins.
 ROW_COUNT = 6
 COLUMN_COUNT = 7
 
-NO_PIECE = '[_]'
-PIECE_ONE = colored('[X]', color='red', attrs=['bold'])
-PIECE_TWO = colored('[O]', color='blue', attrs=['bold'])
+NO_PIECE = '[ ]'
+PIECE_ONE = colored('[' + u"\u25EF" + ']', color='red', attrs=['bold'])
+PIECE_TWO = colored('[' + u"\u25EF" + ']', color='blue', attrs=['bold'])
 
 
 def new_board(board):
@@ -59,8 +59,8 @@ def is_location_valid_for_turn(board, col):
     try:
         return board[ROW_COUNT-1][col] == NO_PIECE
     except IndexError:
-        print('You must choose the number of columnt between 1 and ' +
-              str(COLUMN_COUNT))
+        print(colored('You must choose the number of columnt between 1 and ' +
+              str(COLUMN_COUNT), 'white', 'on_red', attrs=['bold']))
 
 
 def make_move(board, row, col, piece):
