@@ -134,7 +134,7 @@ def winning_move(board, piece):
                     == board[r+3][c+3] \
                     == piece:
                 return True
-# Positive diagonal
+# Negative diagonal
     for c in range(COLUMN_COUNT-3):
         for r in range(3, ROW_COUNT):
             if board[r][c] \
@@ -149,7 +149,7 @@ def main():
     """The function creating and drawing playing board.
     After that in while loop changing playing turns.
     For each player turn calls functions to:
-    check location, get next row and check for win move.
+    check location, get next free row and check for win move.
     If someone wins printing winner message.
     """
     board = []
