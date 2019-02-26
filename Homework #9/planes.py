@@ -42,12 +42,16 @@ def plane_flyer(plane, trips_number):
             break
         plane.land()
 
-
+# creating an instance of Planes class
 boeing = Planes('Boeing', '747', 1999, 10000)
+
+# playing with attributes
 boeing.make = 'Boeing_changed'
 boeing.model = '737'
 boeing.year = 2001
 boeing.weight = 9000
 # boeing.weight = '1000' - exception raised cause of check in setter
+
+# lets fly
 plane_flyer(boeing, 105)
 print(boeing)

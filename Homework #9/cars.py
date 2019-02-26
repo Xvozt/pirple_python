@@ -48,10 +48,19 @@ def car_driving(car, trips_number):
         car.stop()
 
 
+# creating instances of Cars class
 bmw = Cars('BMW', '3er', 2015, 1300)
 audi = Cars('Audi', 'Q5', 2019, 2000)
 alfa_romeo = Cars('Alfa Romeo', '4C', 2016, 1000)
 
+# playing with attributes
+print(bmw.model)
+bmw.model = '2er'
+audi.year = 2012
+alfa_romeo.make = 'Fiat haha :)'
+
+
+# car driving
 car_driving(bmw, 150)
 print(bmw)
 bmw.repair()
