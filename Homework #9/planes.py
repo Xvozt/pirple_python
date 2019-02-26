@@ -48,5 +48,6 @@ boeing.make = 'Boeing_changed'
 boeing.model = '737'
 boeing.year = 2001
 boeing.weight = 9000
+# boeing.weight = '1000' - exception raised cause of check in setter
 plane_flyer(boeing, 105)
 print(boeing)
